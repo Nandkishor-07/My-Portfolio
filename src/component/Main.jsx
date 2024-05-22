@@ -1,4 +1,5 @@
 import React from "react";
+import mypic from "../assets/my-profile-pic-latest.jpeg"
 
 const main = () => {
   return (
@@ -12,7 +13,7 @@ const main = () => {
         <img
           className=" h-[450px] rounded-full w-[450px] md:h-[300px] object-[center_top] md:w-[300px] overflow-hidden object-cover  md:m-auto sm:m-0"
           loading="lazy"
-          src="/my-profile-pic-latest.jpeg"
+          src={mypic}
           alt="my-profile-pic"
         />
       </div>
