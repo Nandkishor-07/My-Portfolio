@@ -1,10 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --header-height: 90px;
+  --background-color: #d8d8d8;
+  --text-color: #000000;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
 a,
 li,
@@ -14,29 +29,160 @@ h2,
 div,
 span,
 p {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: Arial, sans-serif;
   font-optical-sizing: auto;
+  color: #d8d8d8;
+  line-height: normal;
 }
 
-.skillset {
-  width: 80%;
-  margin: 0 auto;
+.menu-ul,
+.navbar-container {
+  background: var(--background-color);
+  color: var(--text-color);
 }
+
+/* Type animation css */
+
+.name-animation h2 {
+  font-size: 2rem;
+  display: inline-block;
+  border-right: 2px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 600;
+  color: #EAB308 !important;
+}
+
+.typing {
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: #d8d8d8;
+  }
+}
+
+/* ScrollAnimation.css */
+.scroll-animation {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.scale-up {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Dark and light mode css */
+
+
+[data-theme='dark'] {
+  --background-color: #34353b;
+  --text-color: #d8d8d8;
+}
+
+[data-theme='light'] {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+html[data-theme="dark"] a,
+html[data-theme="dark"] p,
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6,
+html[data-theme="dark"] main,
+html[data-theme="dark"] label,
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] span {
+  color: #d8d8d8;
+}
+
+html[data-theme="light"] a,
+html[data-theme="light"] p,
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] h5,
+html[data-theme="light"] h6,
+html[data-theme="light"] main,
+html[data-theme="light"] label,
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] span,
+html[data-theme="light"] button {
+  color: #000000;
+}
+
+
+html[data-theme="light"] button:hover,
+html[data-theme="light"] button:hover a,
+html[data-theme="light"] button:hover input,
+html[data-theme="light"] .blackhover,
+html[data-theme="light"] .hamburger svg {
+  color: #d8d8d8;
+  background-color: #000000;
+  font-weight: 600;
+}
+
+html[data-theme="light"] .nohover:hover,
+html[data-theme="dark"] .nohover:hover {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-weight: 600;
+}
+
+html[data-theme="dark"] button:hover,
+html[data-theme="dark"] button:hover a,
+html[data-theme="dark"] button:hover input,
+html[data-theme="light"] .hamburger svg {
+  color: #000000;
+  background-color: #d8d8d8;
+  font-weight: 600;
+}
+
+html[data-theme="dark"] .back-to-top button {
+  color: #000000;
+  background-color: #d8d8d8;
+  border-radius: 50%;
+}
+
+html[data-theme="light"] .back-to-top button {
+  color: #d8d8d8;
+  background-color: #000000;
+  border-radius: 50%;
+}
+
+/* skillset section css */
 
 .skill {
   margin: 20px 0;
 }
 
 .progress-bar {
-  background-color: #f0f0f0;
+  background-color: #d8d8d8;
   border-radius: 20px;
   overflow: hidden;
-  height: 20px;
+  border: 1px solid black;
+  height: 10px;
   position: relative;
 }
 
 .progress {
-  background-color: #4caf50;
+  background-color: greenyellow;
   height: 100%;
   border-radius: 20px 0 0 20px;
   position: absolute;
@@ -45,6 +191,22 @@ p {
   transition: width 0.5s ease-in-out;
 }
 
-.skill h3 {
-  margin: 0 0 10px 0;
+
+/* Anchor redirection fix css */
+
+.about-us,
+.contact-container,
+.resume {
+  position: relative;
+}
+
+.about-us ::before,
+.contact-container::before,
+.resume h3::before {
+  z-index: -1;
+  content: '';
+  display: block;
+  position: inherit;
+  height: var(--header-height);
+  margin-top: calc(var(--header-height) * -1);
 }
