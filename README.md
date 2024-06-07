@@ -1,6 +1,6 @@
 # React + Vite
 
-Please visit my site URL : [https](https://nk-portfoliojs.netlify.app/)
+Please visit my site URL : (https://nk-portfoliojs.netlify.app/)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
